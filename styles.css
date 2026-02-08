@@ -238,10 +238,42 @@ body {
   gap: 10px;
 }
 
+.menu {
+  padding: 64px 0;
+  position: relative;
+}
+
 .map-section {
   padding: 64px 0;
   border-top: 1px solid var(--border-700);
   border-bottom: 1px solid var(--border-700);
+  position: relative;
+}
+
+.menu::before, .map-section::before,
+.menu::after, .map-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.menu::before, .map-section::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(193, 18, 30, 0.151), transparent);
+}
+
+.menu::after, .map-section::after {
+  right: 0;
+  background: linear-gradient(-90deg, rgba(193, 18, 30, 0.137), transparent);
+}
+
+.menu .container, .map-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .address {
@@ -319,6 +351,7 @@ body {
   display: flex;
   gap: 14px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -364,6 +397,10 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.reveal-delay-100 { transition-delay: 0.1s; }
+.reveal-delay-200 { transition-delay: 0.2s; }
+.reveal-delay-300 { transition-delay: 0.3s; }
 
 @media (max-width: 900px) {
   .cards {
